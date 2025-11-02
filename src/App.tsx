@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import TestPage from "./TestPage";
 import { getBackendTest } from "./api";
+import {PatientView} from "./view/PatientView.tsx";
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();           // Must be synchronous
@@ -62,9 +63,9 @@ const HomePage: React.FC = () => {
                     cursor: "pointer",
                     marginTop: "1rem",
                 }}
-                onClick={() => navigate("/test")}
+                onClick={() => navigate("/patients")}
             >
-                Go to Test Page (via navigate)
+                Go to Patients Page
             </button>
         </div>
     );
@@ -75,6 +76,7 @@ const App: React.FC = () => {
         <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/test" element={<TestPage />} />
+            <Route path="/patients" element={<PatientView />} />
         </Routes>
     );
 };
