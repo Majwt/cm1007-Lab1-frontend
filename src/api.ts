@@ -1,3 +1,5 @@
+import type {Patient} from "./model/Patient.ts";
+
 export const API_BASE_URL = "http://localhost:8080";
 
 export async function getBackendTest(): Promise<string> {
@@ -10,4 +12,9 @@ export async function getBackendTest(): Promise<string> {
         console.error("Error fetching backend test:", error);
         return "Error fetching data"; // fallback
     }
+}
+
+export async function getPatients(): Promise<Patient[]> {
+    const response = await fetch(`${API_BASE_URL}/patients`);
+    return await response.json();
 }
