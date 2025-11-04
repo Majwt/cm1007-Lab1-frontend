@@ -3,6 +3,7 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import TestPage from "./TestPage";
 import { getBackendTest } from "./api";
 import {PatientView} from "./view/PatientView.tsx";
+import {PatientDetailsView} from "./view/PatientDetailsView.tsx";
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();           // Must be synchronous
@@ -77,6 +78,7 @@ const App: React.FC = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/test" element={<TestPage />} />
             <Route path="/patients" element={<PatientView />} />
+            <Route path="/patient" element={<PatientDetailsView />} />
         </Routes>
     );
 };
